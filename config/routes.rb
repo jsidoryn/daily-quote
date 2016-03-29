@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get '/styleguide/:action' => 'styleguide'
+  get '/styleguide' => 'styleguide#index'
+  resources :uploads do
+    post :image, on: :collection
+  end
   get '/quotes/random', to: 'quotes#random'
   resources :quotes
 

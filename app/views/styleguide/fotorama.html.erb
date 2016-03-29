@@ -1,0 +1,52 @@
+<% content_for :title, "Fotorama" %>
+
+<div class="rhythm">
+
+  <section class="spacing">
+
+    <h2 class="heading-two">Fotorama</h2>
+
+    <ul>
+      <li><a href="http://fotorama.io/">Official Website</a></li>
+      <li><a href="http://fotorama.io/customize/" target="_blank">Documentation</a></li>
+    </ul>
+
+    <h2 class="heading-two">Basic Slider</h2>
+
+    <div class="fotorama" data-width="100%">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+    </div>
+
+    <pre class="sg-pre prettyprint"><%=h '   <div class="fotorama">
+      <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg">
+      ...
+      <img src="http://fotorama.s3.amazonaws.com/i/okonechnikov/5-lo.jpg">
+    </div>'%></pre>
+
+    <h2 class="heading-two">Gallery</h2>
+
+    <p>
+      Banners with thumbnails, lazy-loading, fullscreen
+    </p>
+
+    <div class="fotorama" data-nav="thumbs" data-allow-full-screen="true" data-width="100%">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+      <img src="http://placehold.it/1024x600">
+    </div>
+
+    <pre class="sg-pre prettyprint"><%=h '   <div class="fotorama" data-nav="thumbs" data-allow-full-screen="true">
+      <a href="http://fotorama.s3.amazonaws.com/i/okonechnikov/1-lo.jpg"></a>
+      ...
+      <a href="http://fotorama.s3.amazonaws.com/i/okonechnikov/5-lo.jpg"></a>
+    </div>'%></pre>
+
+  </section>
+
+</div>

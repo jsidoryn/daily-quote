@@ -1,0 +1,119 @@
+<%- content_for :title, "Lightbox" -%>
+
+<%- content_for :scripts do -%>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjgOvjmIVHFO-1IVSYWeZN-1Yp_MkjeW0">
+  </script>
+<%- end -%>
+
+<div class="content-spacing">
+  
+  <p>Lightboxes are implemented using <a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">Magnific Popup</a>.</p>
+  
+  <hr />
+  <h2 class="heading-two">Basic Lightbox of Hidden Content</h2>
+
+  <p>To implement a lightbox you need the <code>data-lightbox</code> attribute. The value of the attribute will override the <code>type</code> of the lightbox. By default it's inline.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-1" } do -%>
+<a href="#example-1" data-lightbox>Open lightbox</a>
+<div class="mfp-hide" id="example-1">
+  <div class="panel--padding content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Sizing</h2>
+
+  <p>You can add the <code>data-lightbox-small</code> attribute to the lightbox to give it a smaller window:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-2" } do -%>
+<a href="#example-2" data-lightbox data-lightbox-small>Open lightbox</a>
+<div class="mfp-hide" id="example-2">
+  <div class="panel--padding content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque odit saepe, ipsam corrupti delectus autem labore dolorum ratione sit rem.</p>
+  </div>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Types</h2>
+
+  <p>You can pass a value in to <code>data-lightbox</code> to override the type of the lightbox. This example sets the type to iframe.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "example-3" } do -%>
+<a href="/" data-lightbox="iframe">Open lightbox</a>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Images and Galleries</h2>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "image" } do -%>
+<a href="http://placehold.it/500x500" data-lightbox="image">Open image</a>
+  <%- end -%>
+
+  <p>To lightbox up a gallery of images, simply create a container with <code>data-lightbox-gallery</code> attribute. No data-attributes are needed on the images or anchors themselves as it's all delegated through this container.</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "image" } do -%>
+<div data-lightbox-gallery>
+  <a href="http://placehold.it/500x300">
+    <img src="http://placehold.it/150x150" />
+  </a>
+  <a href="http://placehold.it/500x400">
+    <img src="http://placehold.it/150x150" />
+  </a>
+  <a href="http://placehold.it/500x500">
+    <img src="http://placehold.it/150x150" />
+  </a>
+  <a href="http://placehold.it/500x600">
+    <img src="http://placehold.it/150x150" />
+  </a>
+</div>
+  <%- end -%>
+
+  <hr />
+  <h2 class="heading-two">Custom lightbox actions</h2>
+
+  <p>Sometimes you need a lightbox to open programatically. Below is a code sample using Magnific Popups <code>open</code> function:</p>
+
+  <pre class="sg-pre">
+var popupOptions = Ornament.lightboxDefaults;
+popupOptions.type = "inline";
+popupOptions.items = {
+  src: "#id-of-element"
+}
+$.magnificPopup.open(popupOptions);</pre>
+
+  <p>Make sure you start your popupOptions with <code>Ornament.lightboxDefaults</code>, this will ensure that all timings, classes, global callbacks and other settings are automatically pulled in for your new lightbox.</p>
+
+  <p>The code above gets all the default lightbox settings then specifies the inline type and that the popup should open up the element of <code>#id-of-element</code>.</p>
+
+  <p>Similarly, Magnific Popup has a function to close all popups, which might come in handy:</p>
+
+  <pre class="sg-pre">$.magnificPopup.close();</pre>
+
+  <p>You can read more about programatic popup options at <a href="http://dimsemenov.com/plugins/magnific-popup/documentation.html#initializing-popup">the Magnific Popup documentation page</a>.</p>
+
+  <hr />
+  <h2 class="heading-two">Rails <code>data-confirm</code> replacement</h2>
+
+  <p>Rails has a method for easily adding a yes/no dialog confirmation box to links via it's <code>data-confirm="[message]"</code> attribute. Ornament over-rides that behaviour to turn it in to a much nicer lightbox with no other requirements:</p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "confirm-1" } do -%>
+<a href="/styleguide" data-confirm="Are you sure?">Delete my account</a>
+  <%- end -%>
+
+  <p>The text of the link is pulled in to the header of the lightbox. The text in the <code>data-confirm</code> attribute is used for the text in the lightbox.</p>
+
+  <p>You can over-ride the text on the confirm and cancel buttons by passing in <code>data-confirm-cancel=""</code> and <code>data-confirm-confirm=""</code>. </p>
+
+  <%= render layout: "/layouts/styleguide/styleguide_feature", locals: { id: "confirm-1" } do -%>
+<a href="/styleguide" data-confirm="Do you really, really want to delete your account?" data-confirm-cancel="No! I don't want to any more!" data-confirm-confirm="Yes! I really, really do.">Delete my account</a>
+  <%- end -%>
+
+</div>
