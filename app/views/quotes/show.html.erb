@@ -1,0 +1,23 @@
+<h2>This is a quote</h2>
+
+<p>
+  <%= @quote.quote %>
+</p>
+
+<p>
+  By: <%= @quote.source %>
+</p>
+
+<p>
+  Published on: <%= @quote.published_on %>
+</p>
+
+<p>
+  Notes: <%= @quote.notes %>
+</p>
+
+<p>
+  Active? <%= @quote.active %>
+</p>
+
+<%= link_to "Back", quotes_path %>

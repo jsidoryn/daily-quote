@@ -45,6 +45,8 @@ group :development do
   gem 'spring'
 end
 
+gem 'simple_form'
+
 gem 'puma'
 
 gem 'rails_12factor', group: :production

@@ -1,5 +1,12 @@
 <h1>Quote of the day</h1>
+<ul>
+  <% @quotes.each do |quote| %>
+    <li><%= link_to quote.quote, quote_path(quote), class: "btn btn-primary" %>
+      (<%= link_to "Edit", edit_quote_path(quote) %> |
+      <%= link_to "Delete", quote_path(quote), method: :delete, data: {confirm: 'Are you sure?'} %>)</li>
+  <% end %>
+</ul>
 
-<% @quotes.each do |quote| %>
-  <%= quote.quote %>
-<% end %>
+<p>
+  <%= link_to "New quote", new_quote_path, class: "btn btn-primary" %>
+</p>
