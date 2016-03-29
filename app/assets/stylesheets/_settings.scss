@@ -118,7 +118,7 @@ $secondary-color: #252525;
 $passive-color: #eee;
 
 $foreground-color: #222;
-$background-color: #fff;
+$background-color: #F60;
 
 $link-color: blue;
 $link-hover-color: false;
@@ -166,7 +166,7 @@ $layout-animation-duration: 0.5s;
 // Apply this mixin to elements that are fixed (such as mobile fixed header)
 // to make it position correctly in IE
 // Make sure you enable the feature detection in navigation-mobile.js
-// and use the correct element to test. 
+// and use the correct element to test.
 // More information about the bug:
 // http://stackoverflow.com/questions/27952725/why-doesnt-translatex-work-as-expected-for-fixed-elements-on-ie9-ie10-and-ie1
 @mixin ie-fixed-offset {

@@ -1,12 +1,24 @@
 // FONTS
 
-$body-font: (sans-serif) normal normal;
-$italic-font: (sans-serif) italic normal;
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700|Open+Sans:400,700|Abril+Fatface);
 
-$bold-font: (sans-serif) normal bold;
+$merriweather: ('Merriweather', sans-serif) normal normal;
+$merriweather-italic: ('Merriweather', sans-serif) italic normal;
+$merriweather-bold: ('Merriweather', sans-serif) normal 700;
+
+$fat-face: ('Abril Fatface', serif) normal normal;
+
+$open-sans: ('Open Sans', sans-serif) normal normal;
+$open-sans-bold: ('Open Sans', sans-serif) normal 700;
+
+
+$body-font: $merriweather;
+$italic-font: $merriweather-italic;
+
+$bold-font: $merriweather-bold;
 $bold-italic-font: (sans-serif) italic bold;
 
-$heading-alpha-font: (sans-serif) normal bold;
+$heading-alpha-font: $open-sans-bold;
 $heading-alpha-font-italic: (sans-serif) italic bold;
 
 $heading-beta-font: (sans-serif) normal bold;
@@ -68,6 +80,7 @@ small {
   @include font($heading-alpha-font);
   font-size: 54px;
   line-height: 64px;
+  // text-transform: uppercase;
   em {
     @include font($heading-alpha-font-italic);
   }

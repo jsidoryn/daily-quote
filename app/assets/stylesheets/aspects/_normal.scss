@@ -19,7 +19,7 @@
     li {
       list-style: disc;
     }
-  } 
+  }
   @else if ($list-type == ol) {
     li {
       list-style: decimal;
@@ -60,7 +60,7 @@ ol.content-lists {
   @include normal-lists(ol);
 }
 
-// NORMAL SPACING 
+// NORMAL SPACING
 
 @mixin normal-spacing {
   p {
@@ -206,10 +206,11 @@ ol.content-lists {
   }
 
   blockquote {
-    padding-left: $default-unit;
-    border-left: 6px solid $grey;
+    // padding-left: $default-unit;
+    // border-left: 6px solid $grey;
     margin: $xx-small-unit 0 $default-unit;
     @include font($italic-font);
+    font-size: 24px;
   }
 
   // captions on text figures
