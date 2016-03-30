@@ -1,17 +1,15 @@
-<% unless @quote.errors.blank? %>
-<p>
-  There are errors <br>
-</p>
-  <% @quote.errors.full_messages.each do |error| %>
-    <%= error %>
-  <% end %>
-<% end %>
-
 <%= simple_form_for @quote do |f|  %>
-  <%= f.input :quote %>
-  <%= f.input :source %>
-  <%= f.input :published_on %>
-  <%= f.input :notes %>
-  <%= f.input :active %>
-  <%= f.submit %>
+  <div class="inputs">
+    <%- unless f.error_notification.blank? -%>
+      <%= f.error_notification %>
+    <%- end -%>
+    <%= f.input :quote %>
+    <%= f.input :source %>
+    <%= f.input :published_on %>
+    <%= f.input :notes %>
+    <%= f.input :active %>
+  </div>
+  <div class="actions">
+    <%= f.button :button, "Submit", class: "button__line" -%>
+  </div>
 <% end %>
