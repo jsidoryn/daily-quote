@@ -53,9 +53,4 @@ class QuotesController < ApplicationController
       params.require(:quote).permit(:quote, :source, :published_on, :notes, :active)
     end
 
-    def authenticate_user
-      unless session[:user_id]
-        redirect_to root_path
-      end
-    end
 end
