@@ -110,6 +110,14 @@
           <div class="layout--container">
             <div class="header content">
               <h1>Quote of the day</h1>
+              <p>
+                <% if session[:user_id] %>
+                  <%= User.find(session[:user_id]).name %>
+                  (<%= link_to "Logout", session_path, method: :delete %>)
+                <% else %>
+                  <%= link_to "Login?", signin_path %>
+                <% end %>
+              </p>
               <button class="layout--switch header--menu" data-mobile-menu-switch>open navigation</button>
             </div>
           </div>

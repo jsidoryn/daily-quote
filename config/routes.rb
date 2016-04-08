@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   resources :uploads do
     post :image, on: :collection
   end
-  get '/quotes/random', to: 'quotes#random'
-  resources :quotes
 
   root to: 'quotes#random'
-  
+  get '/quotes/random', to: 'quotes#random'
+  get 'signin', to: 'sessions#new'
+  resources :quotes
+  resources :users
+  resource :session
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

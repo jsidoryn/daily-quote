@@ -20,7 +20,7 @@ module ApplicationHelper
 
   # Format share descriptions a bit nicer by converting <br> and
   # <br /> to spaces.
-  def share_description(value) 
+  def share_description(value)
     raw(value).gsub("<br>", " ").gsub("<br />", " ")
   end
 

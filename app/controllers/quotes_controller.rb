@@ -1,4 +1,7 @@
 class QuotesController < ApplicationController
+
+  before_action :authenticate_user, except: [:random]
+
   def index
     @quotes = Quote.all
   end
@@ -48,5 +51,11 @@ class QuotesController < ApplicationController
 
     def quote_params
       params.require(:quote).permit(:quote, :source, :published_on, :notes, :active)
+    end
+
+    def authenticate_user
+      unless session[:user_id]
+        redirect_to root_path
+      end
     end
 end
